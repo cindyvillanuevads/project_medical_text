@@ -8,7 +8,7 @@ and  contains sample medical transcriptions for various medical specialties.
 
 ## GOALS 
 
-classify the ?
+
 - Predict the medical specialties based on the transcription text  using property data that was  scraped from mtsamples.com.
 
 
