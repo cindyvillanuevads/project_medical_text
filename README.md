@@ -1,4 +1,4 @@
-# Zillow Regression Project
+# Medical transcripts Project
 
 ## PROJECT DESCRIPTION
 -  Medical data is extremely hard to find due to HIPAA privacy regulations. This data was scraped from mtsamples.com
@@ -19,6 +19,11 @@ and  contains sample medical transcriptions for various medical specialties.
 
 | Feature | Definition | Data Type |
 | --- | ---------------- | -------|
+|description| chief complain | object |
+|transciption| medical record for the visit|object|
+|sample_name| transciption title| object|
+|keywords| relevant keywords form transcriptions|object|
+
 
 
 
@@ -26,7 +31,7 @@ and  contains sample medical transcriptions for various medical specialties.
 
 | Target | Definition | Data Type |
 | --- | --- | -------|
-
+|medical_specialty|medical specialty classification of transcription|object|
 
 
 
@@ -40,7 +45,7 @@ and  contains sample medical transcriptions for various medical specialties.
 
 
 ### Acquire
-- Acquire data from the Codeup Database using my own function to automate this process. This function is saved in acquire.py file.
+- Acquire data from [Kaggle](https://www.kaggle.com/tboyle10/medicaltranscriptions) 
 ### Prepare
 - Clean and prepare data for preparation step. 
 Split dataset into train, validate, test. Separate target from features and scale the selected features. Create a function to automate the process. The function is saved in a prepare.py module. 
@@ -64,7 +69,7 @@ Split dataset into train, validate, test. Separate target from features and scal
 
 - [x] Read this README.md
 - 
-- [ ] Download the aquire.py, prepare.py, explore.py , model.py,  evaluate.pyand  and ___  into your working directory
+- [ ] Download the  prepare.py, explore.py , model.py,  evaluate.pyand  and ___  into your working directory
 - [ ] Run the ___ notebook
 
 
