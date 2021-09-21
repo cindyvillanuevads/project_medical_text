@@ -183,3 +183,4 @@ def prepare_data(df, column, extra_words=[], exclude_words=[]):
     df['lemmatized'] = df['clean'].apply(lemmatize)
     
     return df
+    
