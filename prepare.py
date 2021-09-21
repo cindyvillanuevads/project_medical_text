@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from sklearn.model_selection import train_test_split
+
+
 def miss_dup_values(df):
     '''
     this function takes a dataframe as input and returns metrics for missing values and duplicated rows.
@@ -50,3 +52,20 @@ def handle_missing_values(df, prop_required_columns=0.5, prop_required_row=0.75)
     
      
     return df
+
+
+
+def top_n_target(df,target,  n):
+    '''
+    takes in a df and target and give you the top n of you target
+    return a df with only the top n 
+    '''
+    
+    #get the value counts of the target
+    targ =pd.DataFrame(df[[target]].value_counts())\
+    .reset_index().rename(columns= {0:'cnt', 'index':target})
+    #get the top 5
+    topl= list(targ.loc[0:(n-1)].medical_specialty.values)
+    #get new df with only the top n values of target
+    df= df[df.medical_specialty.isin(topl)].reset_index(drop=True)
+    return  df
