@@ -8,6 +8,15 @@ import seaborn as sns
 import numpy as np
 from sklearn.model_selection import train_test_split
 
+import unicodedata
+import re
+import json
+
+import nltk
+from nltk.tokenize.toktok import ToktokTokenizer
+from nltk.corpus import stopwords
+
+
 
 def miss_dup_values(df):
     '''
@@ -82,12 +91,12 @@ def basic_clean (string):
     string = unicodedata.normalize('NFKC',string)\
     .encode('ascii', 'ignore')\
     .decode('utf-8')
-    string = re.sub(r"\w*.?\w*@\w*.com", '', string)
+ #   string = re.sub(r"\w*.?\w*@\w*.com", '', string)
     string = re.sub(r"[^a-z0-9\s]", '', string)
-    string = re.sub(r'\w*http\w*', '', string)
-    string = re.sub(r'\w*github\w*', '', string)
-    string = re.sub(r'\w*html\w*', '', string)
-    string = re.sub(r'\w*gmail\w*', '', string)
+ #   string = re.sub(r'\w*http\w*', '', string)
+ #   string = re.sub(r'\w*github\w*', '', string)
+ #   string = re.sub(r'\w*html\w*', '', string)
+ #   string = re.sub(r'\w*gmail\w*', '', string)
     string = re.sub(r'\w*\n\w*', '', string)
 
     return string
