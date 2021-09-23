@@ -192,4 +192,35 @@ def prepare_data(df, column, extra_words=[], exclude_words=[]):
     df['lemmatized'] = df['clean'].apply(lemmatize)
     
     return df
+
+
+def prepare_mf (df,extra_words=[], exclude_words=[] ):
+    '''
+    takes in a df and all the rows with missing information, 
+    and then clean, tokenize, stemming, lemmatize
+    '''
+    
+    
+    
+    #remove duplicates 
+    df =df.drop_duplicates()
+
+    #fill only keywords missing
+    df.keywords.fillna('none', inplace = True)
+    
+    #removing missing values
+    #removing missing values
+    df = df.dropna(axis=0).reset_index(drop=True)
+       
+        
+    #get the top n languages
+    df = top_n_target(df[['medical_specialty', 'transcription']], 'medical_specialty', 5).reset_index(drop=True)
+    
+    #use my prepare function to  clean, tokenized, stemming, lemmatize
+    df =prepare_data(df, 'transcription', extra_words= extra_words, exclude_words=exclude_words)
+
+
+
+    return df
+    
     
